@@ -107,8 +107,12 @@ int main(int argc, char *argv[]) {
         line = getline(&buffer, &buffersize, input);
 
         //Indicating end of file
-        if (line == -1) break;
-
+        if (line == -1) {
+        
+        	free(buffer);
+        	break;
+        	
+        }
         //"/exit" is the escape command in stdin
         if (isstdin == 1 && strcmp("/exit\n", buffer) == 0 ) break;
 
